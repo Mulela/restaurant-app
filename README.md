@@ -77,3 +77,7 @@ Dashboard admin sécurisé
 Paiement en ligne (Stripe)
 
 Notifications en temps réel
+
+
+## 🌍 Live Demo
+https://restaurant-app-nu-green.vercel.app
