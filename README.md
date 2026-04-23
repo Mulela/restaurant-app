@@ -1,16 +1,79 @@
-# React + Vite
+# 🍔 Restaurant App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application de commande en ligne pour restaurant, avec interface moderne et backend Supabase.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Stack
 
-## React Compiler
+- React + Vite
+- Tailwind CSS v4
+- Supabase (PostgreSQL + API)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🧾 Menu dynamique (chargé depuis la base de données)
+- 🛒 Panier (stocké en localStorage)
+- 📦 Commande en ligne
+- ⏱️ Suivi de commande
+- 🛠️ Interface admin (gestion produits + statuts)
+
+---
+
+## ⚙️ Installation
+
+### 1. Cloner le projet
+
+```bash
+git clone https://github.com/TON_USERNAME/restaurant-app.git
+cd restaurant-app
+npm install
+```
+### 2. Variables d’environnement
+
+Créer un fichier .env à la racine :
+
+VITE_SUPABASE_URL=your_supabase_url
+
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+### 3. Configuration de la base de données (Supabase)
+Créer un projet sur Supabase
+Aller dans SQL Editor
+Copier le contenu du fichier :
+/supabase/schema.sql
+Exécuter le script
+
+👉 Cela va créer :
+
+tables (products, orders, order_items)
+relations
+index
+policies (RLS)
+### 4. Lancer le projet
+npm run dev
+🧠 Fonctionnement
+Les produits sont récupérés depuis Supabase
+Le panier est stocké en local (pas d’auth utilisateur)
+Les commandes sont envoyées en base
+L’admin peut :
+ajouter / modifier / supprimer des produits
+changer le statut des commandes
+🔐 Sécurité
+
+Les policies RLS sont volontairement ouvertes (using (true)) pour simplifier :
+
+⚠️ Mode démo uniquement
+👉 À sécuriser avec authentification en production
+
+🔮 Améliorations possibles
+
+Authentification (Supabase Auth)
+
+Dashboard admin sécurisé
+
+Paiement en ligne (Stripe)
+
+Notifications en temps réel
